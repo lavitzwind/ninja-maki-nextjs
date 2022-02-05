@@ -74,7 +74,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 25px;
+	margin-top: 150px;
 	color: #f1faee;
 	font-weight: thin;
 	font-size: 30px;
@@ -87,7 +87,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
 .whoweareImage {
@@ -98,7 +98,7 @@
 	height: 250px;
 	border-radius: 50%;
 	background-color: white;
-	margin: 25px 20px 0 0;
+	margin: 30px 20px 0 0;
 	z-index: 2;
 	transform: scale(0.9);
 	transition: 0.4s;

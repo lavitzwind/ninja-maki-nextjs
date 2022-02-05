@@ -1,4 +1,5 @@
 import styles from "../styles/SushiList.module.css";
+import SushiCard from "./SushiCard";
 
 const SushiList = () => {
 	return (
@@ -8,6 +9,12 @@ const SushiList = () => {
 				We have a wide variety of sushi to choose from and we are always happy
 				to serve you.
 			</p>
+			<div className={styles.wrapper}>
+				<SushiCard />
+				<SushiCard />
+				<SushiCard />
+				<SushiCard />
+			</div>
 		</div>
 	);
 };
