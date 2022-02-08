@@ -2,6 +2,7 @@
 	height: calc(70vh - 100px);
 	background-color: #222;
 	display: flex;
+	overflow: hidden;
 }
 
 .item:first-child {
@@ -11,12 +12,12 @@
 }
 
 .item:nth-child(2) {
-	flex: 2;
-	position: relative;
 	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+	flex: 1;
+	align-items: center;
+	justify-content: space-around;
 	flex-direction: column;
+	position: relative;
 	color: #fff;
 }
 
@@ -25,11 +26,9 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 20px;
-	position: absolute;
-	top: 0;
-	left: 17%;
-	width: 60%;
+	text-align: center;
+	margin-top: 10px;
+	width: 80%;
 }
 
 .title {
@@ -39,21 +38,18 @@
 }
 
 .socialMedia {
-	position: absolute;
-	margin-bottom: 1rem;
-	top: 80%;
-	left: 30%;
-	width: 60%;
+	display: flex;
+	margin-top: 50px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .social {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 1rem;
-	gap: 2rem;
 	transform: scale(1);
-	width: 60%;
 }
 
 .social:hover {
@@ -62,17 +58,19 @@
 
 .copyright {
 	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
 	font-size: 1rem;
 	font-weight: bold;
-	margin: 2rem 0;
+	color: #fff;
 }
 
 .item:last-child {
 	flex: 1;
 	position: relative;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	align-items: flex-end;
+	justify-content: flex-end;
 	flex-direction: column;
 	color: #fff;
 }
