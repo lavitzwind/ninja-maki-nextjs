@@ -24,3 +24,10 @@
 	gap: 50px;
 	margin: 30px 0 0 0;
 }
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+	.wrapper {
+		gap: 20px;
+	}
+}
