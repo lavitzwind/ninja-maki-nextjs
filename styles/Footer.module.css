@@ -86,3 +86,22 @@
 		height: 100%;
 	}
 }
+
+@media screen and (max-width: 425px) {
+	.item:first-child {
+		order: 2;
+	}
+
+	.item:nth-child(2) {
+		order: 3;
+	}
+
+	.item:last-child {
+		order: 1;
+	}
+
+	.container {
+		height: calc(120vh - 100px);
+		flex-direction: column;
+	}
+}

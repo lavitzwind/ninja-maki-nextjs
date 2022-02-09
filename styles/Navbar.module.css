@@ -239,3 +239,21 @@
 		display: flex;
 	}
 }
+
+/* Mobile */
+@media screen and (max-width: 425px) {
+	.itemRight {
+		margin-right: 70px;
+	}
+
+	.svgCart {
+		position: absolute;
+		top: calc(50% - 16px);
+		right: -50px;
+	}
+
+	.counter {
+		top: -20px;
+		right: -50px;
+	}
+}

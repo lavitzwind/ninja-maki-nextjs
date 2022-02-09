@@ -110,8 +110,23 @@
 	background-color: black;
 }
 
-@media screen and (max-width: 480px) {
+/* Mobile */
+
+@media screen and (max-width: 425px) {
 	.container {
-		height: 50vh;
+		height: 40vh;
+	}
+
+	.arrowContainer {
+		width: 50px;
+		height: 100px;
+	}
+
+	.arrowContainer:first-child {
+		margin-left: 20px;
+	}
+
+	.dotContainer {
+		top: 80px;
 	}
 }
