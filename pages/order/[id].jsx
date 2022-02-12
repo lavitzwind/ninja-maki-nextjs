@@ -85,9 +85,9 @@ const Order = () => {
 				<div className={styles.wrapper}>
 					<h1 className={styles.title}>CART TOTAL</h1>
 					<div className={styles.textWrapper}>
-						<span className={styles.text}>Subtotal: $79.60</span>
+						<span className={styles.text}>Subtotal: $12.99</span>
 						<span className={styles.text}>Discount: $0.00</span>
-						<span className={styles.text}>Total: $79.60</span>
+						<span className={styles.text}>Total: $12.99</span>
 					</div>
 					<button disabled className={styles.button}>
 						PAID

@@ -12,7 +12,7 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 20px;
-	width: 70%;
+	width: 80%;
 }
 
 .row:last-child {
@@ -21,7 +21,7 @@
 	justify-content: space-between;
 	margin-top: 50px;
 	margin-bottom: 20px;
-	width: 70%;
+	width: 80%;
 }
 
 .table {
