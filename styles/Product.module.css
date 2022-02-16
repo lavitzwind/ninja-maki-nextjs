@@ -132,3 +132,167 @@
 	color: #fff;
 	font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+	.container {
+		height: auto;
+	}
+
+	.imgContainer {
+		width: 80%;
+		height: auto;
+	}
+
+	.number {
+		top: 10px;
+		left: 20px;
+		padding: 0 5px;
+		font-size: 10px;
+	}
+
+	.choose {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 90%;
+	}
+
+	.add {
+		margin-bottom: 20px;
+	}
+
+	.quantity {
+		width: 30px;
+		height: 30px;
+	}
+
+	.amount {
+		display: flex;
+		height: auto;
+		width: 300px;
+	}
+
+	.amountRolls {
+		width: 100px;
+		height: 100px;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.extrasContainer {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.container {
+		height: auto;
+		flex-direction: column;
+	}
+
+	.left {
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		margin-top: 50px;
+	}
+
+	.imgContainer {
+		width: 50%;
+		height: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.table {
+		width: 80%;
+		border-spacing: 10px;
+	}
+
+	.right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80%;
+	}
+
+	.name {
+		font-size: 30px;
+		font-weight: bold;
+		color: #fff;
+	}
+
+	.price {
+		font-size: 20px;
+		color: rgb(221, 96, 96);
+		border-bottom: 1px solid rgb(221, 96, 96);
+	}
+
+	.desc {
+		font-size: 20px;
+		color: black;
+		text-align: center;
+	}
+
+	.choose {
+		width: 40%;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background-color: rgb(221, 96, 96);
+		border-radius: 5px;
+		color: #fff;
+		font-size: 15px;
+		font-weight: bold;
+	}
+
+	.amount {
+		width: 100%;
+		display: flex;
+	}
+
+	.amountRolls {
+		width: 100px;
+		height: 100px;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.number {
+		position: absolute;
+		top: 50px;
+		left: 10px;
+		background-color: rgb(221, 96, 96);
+		color: black;
+		font-size: 15px;
+		padding: 0 5px;
+		border-radius: 10px;
+	}
+
+	.extras {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+	.extrasContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0px;
+		margin-bottom: 30px;
+	}
+
+	.add {
+		margin-bottom: 50px;
+	}
+}
