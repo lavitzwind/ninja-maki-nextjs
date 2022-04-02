@@ -104,9 +104,9 @@ const cart = () => {
 				<div className={styles.wrapper}>
 					<h1 className={styles.title}>CART TOTAL</h1>
 					<div className={styles.textWrapper}>
-						<span className={styles.text}>Subtotal: $12.99</span>
+						<span className={styles.text}>Subtotal: $155.88</span>
 						<span className={styles.text}>Discount: $0.00</span>
-						<span className={styles.text}>Total: $12.99</span>
+						<span className={styles.text}>Total: $155.88</span>
 					</div>
 					<button className={styles.button}>CHECKOUT NOW!</button>
 				</div>
