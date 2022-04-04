@@ -1,16 +1,34 @@
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import { useState } from "react";
+import axios from "axios";
 
-const Product = () => {
+const Product = ({ sushi }) => {
+	const [price, setPrice] = useState(sushi.prices[0]);
 	const [amount, setAmount] = useState(0);
+	const [quantity, setQuantity] = useState(0);
+	const [extras, setExtras] = useState([]);
 
-	const sushi = {
-		id: 1,
-		name: "Shogun",
-		price: [10.99, 14.99, 18.99],
-		image: "/img/Sushi.jpeg",
-		desc: "Shogun Maki Roll with salmon, avocado, cucumber, and wasabi. Stuffed with spicy tuna, and topped with spicy tuna.",
+	const changePrice = (number) => {
+		setPrice(price + number);
+	};
+
+	const handleAmount = (amountIndex) => {
+		const difference = sushi.prices[amountIndex] - sushi.prices[amount];
+		setAmount(amountIndex);
+		changePrice(difference);
+	};
+
+	const handleChange = (e, option) => {
+		const checked = e.target.checked;
+
+		if (checked) {
+			changePrice(option.price);
+			setExtras((prev) => [...prev, option]);
+		} else {
+			changePrice(-option.price);
+			setExtras(extras.filter((extra) => extra._id !== option._id));
+		}
 	};
 
 	return (
@@ -18,7 +36,7 @@ const Product = () => {
 			<div className={styles.left}>
 				<div className={styles.imgContainer}>
 					<Image
-						src={sushi.image}
+						src={sushi.img}
 						width={500}
 						height={500}
 						alt={sushi.name}
@@ -27,15 +45,15 @@ const Product = () => {
 				</div>
 			</div>
 			<div className={styles.right}>
-				<h1 className={styles.title}>{sushi.name}</h1>
-				<span className={styles.price}>${sushi.price[amount]}</span>
+				<h1 className={styles.title}>{sushi.title}</h1>
+				<span className={styles.price}>${price}</span>
 				<p className={styles.desc}>{sushi.desc}</p>
 				<h3 className={styles.choose}>Choose amount of maki rolls:</h3>
 				<div className={styles.amount}>
 					<div
 						className={styles.amountRolls}
 						onClick={() => {
-							setAmount(0);
+							handleAmount(0);
 						}}
 					>
 						<Image
@@ -49,7 +67,7 @@ const Product = () => {
 					<div
 						className={styles.amountRolls}
 						onClick={() => {
-							setAmount(1);
+							handleAmount(1);
 						}}
 					>
 						<Image
@@ -63,7 +81,7 @@ const Product = () => {
 					<div
 						className={styles.amountRolls}
 						onClick={() => {
-							setAmount(2);
+							handleAmount(2);
 						}}
 					>
 						<Image
@@ -77,59 +95,42 @@ const Product = () => {
 				</div>
 				<h3 className={styles.extras}>Choice of extra sauces:</h3>
 				<div className={styles.extrasContainer}>
-					<div className={styles.sauces}>
-						<input
-							type="checkbox"
-							id="sauce1"
-							name="teriyaki"
-							className={styles.checkbox}
-						/>
-						<label htmlFor="teriyaki">Teriyaki Sauce</label>
-					</div>
-					<div className={styles.sauces}>
-						<input
-							type="checkbox"
-							id="sauce2"
-							name="soy"
-							className={styles.checkbox}
-						/>
-						<label htmlFor="soy">Soy Sauce</label>
-					</div>
-					<div className={styles.sauces}>
-						<input
-							type="checkbox"
-							id="sauce1"
-							name="tare"
-							className={styles.checkbox}
-						/>
-						<label htmlFor="tare">Tare sauce</label>
-					</div>
-					<div className={styles.sauces}>
-						<input
-							type="checkbox"
-							id="sauce1"
-							name="goma"
-							className={styles.checkbox}
-						/>
-						<label htmlFor="goma">Goma sauce</label>
-					</div>
-					<div className={styles.sauces}>
-						<input
-							type="checkbox"
-							id="sauce1"
-							name="tonkatsu"
-							className={styles.checkbox}
-						/>
-						<label htmlFor="tonkatsu">Tonkatsu sauce</label>
-					</div>
+					{sushi.extraSauces.map((option) => (
+						<div className={styles.sauces} key={option._id}>
+							<input
+								type="checkbox"
+								id={option.text}
+								name={option.text}
+								className={styles.checkbox}
+								onChange={(e) => handleChange(e, option)}
+							/>
+							<label htmlFor={option.text}>{option.text}</label>
+						</div>
+					))}
 				</div>
 				<div className={styles.add}>
-					<input type="number" defaultValue={1} className={styles.quantity} />
+					<input
+						onChange={(e) => setQuantity(e.target.value)}
+						type="number"
+						defaultValue={1}
+						className={styles.quantity}
+					/>
 					<button className={styles.button}>Add to cart</button>
 				</div>
 			</div>
 		</div>
 	);
+};
+
+export const getServerSideProps = async ({ params }) => {
+	const res = await axios.get(
+		`http://localhost:3000/api/products/${params.id}`
+	);
+	return {
+		props: {
+			sushi: res.data,
+		},
+	};
 };
 
 export default Product;

@@ -98,13 +98,14 @@
 .extrasContainer {
 	width: 70%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin-top: 20px;
 	margin-bottom: 30px;
 }
 
 .sauces {
 	font-weight: bold;
+	margin-right: 10px;
 }
 
 .checkbox {

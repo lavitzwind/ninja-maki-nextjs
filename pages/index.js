@@ -4,8 +4,9 @@ import Featured from "../components/Featured";
 import SushiList from "../components/SushiList";
 import Whoweare from "../components/Whoweare";
 import styles from "../styles/Home.module.css";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ sushiList }) {
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -15,7 +16,16 @@ export default function Home() {
 			</Head>
 			<Featured />
 			<Whoweare />
-			<SushiList />
+			<SushiList sushiList={sushiList} />
 		</div>
 	);
 }
+
+export const getServerSideProps = async () => {
+	const res = await axios.get("http://localhost:3000/api/products");
+	return {
+		props: {
+			sushiList: res.data,
+		},
+	};
+};

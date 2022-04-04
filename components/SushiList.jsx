@@ -1,7 +1,7 @@
 import styles from "../styles/SushiList.module.css";
 import SushiCard from "./SushiCard";
 
-const SushiList = () => {
+const SushiList = ({ sushiList }) => {
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.title}>THE BEST SUSHI IN TOWN</h1>
@@ -10,10 +10,9 @@ const SushiList = () => {
 				to serve you.
 			</p>
 			<div className={styles.wrapper}>
-				<SushiCard />
-				<SushiCard />
-				<SushiCard />
-				<SushiCard />
+				{sushiList.map((sushi) => (
+					<SushiCard key={sushi._id} sushi={sushi} />
+				))}
 			</div>
 		</div>
 	);
