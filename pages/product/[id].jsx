@@ -2,12 +2,15 @@ import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/cartSlice";
 
 const Product = ({ sushi }) => {
 	const [price, setPrice] = useState(sushi.prices[0]);
 	const [amount, setAmount] = useState(0);
 	const [quantity, setQuantity] = useState(0);
 	const [extras, setExtras] = useState([]);
+	const dispatch = useDispatch();
 
 	const changePrice = (number) => {
 		setPrice(price + number);
@@ -29,6 +32,10 @@ const Product = ({ sushi }) => {
 			changePrice(-option.price);
 			setExtras(extras.filter((extra) => extra._id !== option._id));
 		}
+	};
+
+	const handleClick = () => {
+		dispatch(addProduct({ ...sushi, extras, price, quantity }));
 	};
 
 	return (
@@ -115,7 +122,9 @@ const Product = ({ sushi }) => {
 						defaultValue={1}
 						className={styles.quantity}
 					/>
-					<button className={styles.button}>Add to cart</button>
+					<button className={styles.button} onClick={handleClick}>
+						Add to cart
+					</button>
 				</div>
 			</div>
 		</div>

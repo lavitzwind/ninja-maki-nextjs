@@ -10,7 +10,7 @@ export default function Home({ sushiList }) {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Ninja Maki | Sushir Bar Online</title>
+				<title>Ninja Maki | Sushi Bar Online</title>
 				<meta name="description" content="Best sushi bar in town" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

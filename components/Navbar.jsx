@@ -3,9 +3,12 @@ import Link from "next/link";
 import styles from "../styles/Navbar.module.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
+
+	const quantity = useSelector((state) => state.cart.quantity);
 
 	return (
 		<div className={styles.container}>
@@ -43,13 +46,15 @@ const Navbar = () => {
 							style={{ fontSize: "40px" }}
 						/>
 					</div>
-					<div className={styles.cartWrapper}>
-						<ShoppingCartIcon
-							className={styles.svgCart}
-							style={{ fontSize: "30px" }}
-						/>
-						<div className={styles.counter}>2</div>
-					</div>
+					<Link href="/cart" passHref>
+						<div className={styles.cartWrapper}>
+							<ShoppingCartIcon
+								className={styles.svgCart}
+								style={{ fontSize: "30px" }}
+							/>
+							<div className={styles.counter}>{quantity}</div>
+						</div>
+					</Link>
 				</div>
 			</div>
 			<ul
