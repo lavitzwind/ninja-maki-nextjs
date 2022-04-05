@@ -42,7 +42,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	max-height: 300px;
+	max-height: 350px;
 	width: 90%;
 	background-color: #333;
 	color: white;
@@ -74,6 +74,21 @@
 	font-weight: bold;
 	cursor: pointer;
 	font-size: 15px;
+}
+
+.paymentMethods {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.payButton {
+	padding: 10px 5px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	background-color: white;
+	color: teal;
+	font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
