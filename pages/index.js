@@ -4,10 +4,10 @@ import Featured from "../components/Featured";
 import SushiList from "../components/SushiList";
 import Whoweare from "../components/Whoweare";
 import styles from "../styles/Home.module.css";
-import axios from "axios";
 import { useState } from "react";
 import Add from "../components/Add";
 import AddButton from "../components/AddButton";
+import { axiosInstance } from "./api/config";
 
 export default function Home({ sushiList, admin }) {
   const [close, setClose] = useState(true);
@@ -35,9 +35,8 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
 
-  const res = await axios.get(
-    "https://ninja-maki-nextjs.vercel.app/api/products"
-  );
+  const res2 = await axiosInstance.get("orders");
+  const res = await axiosInstance.get("products");
   return {
     props: {
       sushiList: res.data,

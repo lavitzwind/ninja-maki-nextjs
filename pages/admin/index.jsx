@@ -1,7 +1,7 @@
-import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../../styles/Admin.module.css";
+import { axiosInstance } from "../api/config";
 
 const Index = ({ orders, products }) => {
   const [sushiList, setSushiList] = useState(products);
@@ -10,9 +10,7 @@ const Index = ({ orders, products }) => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(
-        "https://ninja-maki-nextjs.vercel.app/api/products/" + id
-      );
+      const res = await axiosInstance.delete("products/" + id);
       setSushiList(sushiList.filter((sushi) => sushi._id !== id));
     } catch (err) {
       console.log(err);
@@ -24,12 +22,9 @@ const Index = ({ orders, products }) => {
     const currentStatus = item.status;
 
     try {
-      const res = await axios.put(
-        "https://ninja-maki-nextjs.vercel.app/api/orders/" + id,
-        {
-          status: currentStatus + 1,
-        }
-      );
+      const res = await axiosInstance.put("orders/" + id, {
+        status: currentStatus + 1,
+      });
       setOrderList([
         res.data,
         ...orderList.filter((order) => order._id !== id),
@@ -131,12 +126,8 @@ export const getServerSideProps = async (ctx) => {
     };
   }
 
-  const productRes = await axios.get(
-    "https://ninja-maki-nextjs.vercel.app/api/products"
-  );
-  const orderRes = await axios.get(
-    "https://ninja-maki-nextjs.vercel.app/api/orders"
-  );
+  const productRes = await axiosInstance.get("products");
+  const orderRes = await axiosInstance.get("orders");
 
   return {
     props: {

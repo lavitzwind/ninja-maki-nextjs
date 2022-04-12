@@ -2,7 +2,6 @@ import styles from "../styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
 import {
@@ -11,6 +10,7 @@ import {
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
 import OrderDetail from "../components/OrderDetail";
+import { axiosInstance } from "./api/config";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -24,10 +24,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post(
-        "https://ninja-maki-nextjs.vercel.app/api/orders",
-        data
-      );
+      const res = await axiosInstance.post("orders", data);
       res.status === 201 && router.push("/orders/" + res.data._id);
       dispatch(reset());
     } catch (err) {

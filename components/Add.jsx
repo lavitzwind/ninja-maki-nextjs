@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Add.module.css";
-import axios from "axios";
 import { useRouter } from "next/router";
+import { axiosInstance } from "../pages/api/config";
 
 const Add = ({ setClose }) => {
   const [file, setFile] = useState(null);
@@ -45,7 +45,7 @@ const Add = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post("https://ninja-maki-nextjs.vercel.app/api/products", newProduct);
+      await axiosInstance.post("products", newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);

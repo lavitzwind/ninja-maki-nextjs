@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import { useState } from "react";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import { axiosInstance } from "../api/config";
 
 const Product = ({ sushi }) => {
   const [price, setPrice] = useState(sushi.prices[0]);
@@ -132,9 +132,7 @@ const Product = ({ sushi }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(
-    `https://ninja-maki-nextjs.vercel.app/api/products/${params.id}`
-  );
+  const res = await axiosInstance.get(`products/${params.id}`);
   return {
     props: {
       sushi: res.data,

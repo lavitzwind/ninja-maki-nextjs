@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
+import { axiosInstance } from "../api/config";
 
 const Login = () => {
   const [username, setUsername] = useState(null);
@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post("https://ninja-maki-nextjs.vercel.app/api/login", {
+      await axiosInstance.post("login", {
         username,
         password,
       });
