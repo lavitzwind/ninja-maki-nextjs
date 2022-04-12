@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Featured from "../components/Featured";
 import SushiList from "../components/SushiList";
 import Whoweare from "../components/Whoweare";
