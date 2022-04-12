@@ -28,12 +28,14 @@ const Navbar = () => {
           <Link href="#about-section" passHref>
             <li className={styles.listItem}>About</li>
           </Link>
-          <li className={styles.listItem}>Menu</li>
-					<Link href="#footer-section" passHref>
-          <li className={styles.listItem}>Contact</li>
+          <Link href="#menu-section" passHref>
+            <li className={styles.listItem}>Menu</li>
           </Link>
-					<Link href="#about-section" passHref>
-          <li className={styles.listItem}>About Us</li>
+          <Link href="#footer-section" passHref>
+            <li className={styles.listItem}>Contact</li>
+          </Link>
+          <Link href="#about-section" passHref>
+            <li className={styles.listItem}>About Us</li>
           </Link>
         </ul>
       </div>

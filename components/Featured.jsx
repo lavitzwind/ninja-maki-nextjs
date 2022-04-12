@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Link from "next/link";
 
 const Featured = () => {
   const [index, setIndex] = useState(0);
@@ -65,7 +66,9 @@ const Featured = () => {
             style={{ fontSize: "100px", color: "#f1faee" }}
           />
         </div>
-        <button className={styles.button}>Order Now</button>
+        <Link href="#menu-section" passHref>
+          <button className={styles.button}>Order Now</button>
+        </Link>
       </div>
       <div className={styles.dotContainer} id="about-section">
         <span className={styles.dots} onClick={() => handleDots(0)}></span>
