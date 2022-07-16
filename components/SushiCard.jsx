@@ -18,15 +18,17 @@ const SushiCard = ({ sushi }) => {
       <h1 className={styles.title}>{sushi.title}</h1>
       <p className={styles.desc}>{sushi.desc}</p>
       <p className={styles.price}>{sushi.prices[0]}$</p>
-      <button className={styles.button}>
-        Add to Cart
-        <ArrowForwardIcon
-          style={{
-            marginLeft: "10px",
-            color: "#fff",
-          }}
-        />
-      </button>
+      <Link href={`/product/${sushi._id}`} passHref>
+        <button className={styles.button}>
+          Add to Cart
+          <ArrowForwardIcon
+            style={{
+              marginLeft: "10px",
+              color: "#fff",
+            }}
+          />
+        </button>
+      </Link>
     </div>
   );
 };

@@ -117,9 +117,11 @@ const Product = ({ sushi }) => {
         </div>
         <div className={styles.add}>
           <input
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) =>
+              e.target.value < 1 ? setQuantity(1) : setQuantity(e.target.value)
+            }
+            defaultValue={quantity}
             type="number"
-            defaultValue={1}
             className={styles.quantity}
           />
           <button className={styles.button} onClick={handleClick}>
